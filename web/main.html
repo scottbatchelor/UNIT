@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <style> 
+	    div {background-color:green; border:1px solid black; }
+    </style>
+    <head> 
+        <title> UNIT control and monitor </title> 
+    </head>
+
+    <body>
+        <div>
+        <h1> UNIT control and monitor</h1>
+
+        <button type="button" onclick='start()'>Start processing</button>
+        <button type="button" disabled="disabled" onclick='stop()'>Stop processing</button>
+
+        <br/> 
+
+        Progress: <progress value="0" max="100" id="progressBar"> </progress>
+
+        <br/>
+
+        <textarea id="logInfo" maxlength="5000" cols="80" rows="10"></textarea>
+
+        <script type="text/javascript">
+            var bar = document.getElementById('progressBar');
+            var logInfo = document.getElementById("logInfo");
+
+            var progressWs = new WebSocket("ws://localhost:8888/progress");
+            var logWs = new WebSocket("ws://localhost:8888/log");
+
+            logInfo.value = ""
+
+            progressWs.onmessage = function(evt){
+                bar.value = evt.data
+            }
+
+            logWs.onmessage = function(evt){
+                logInfo.value += evt.data
+		logInfo.scrollTop = logInfo.scrollHeight;
+            }
+
+            function start(){
+                logInfo.value = "";
+                progressWs.send("start");
+            }
+
+            function stop(){
+                progressWs.send("stop");
+            }
+        </script>
+    </div>
+    </body>
+</html>

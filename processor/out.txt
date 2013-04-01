@@ -1,0 +1,21 @@
+Processing Started.
+3%
+6%
+9%
+Image 1 of scene 1 produced.
+Image 2 of scene 1 produced.
+25%
+Image 3 of scene 1 produced.
+Image 4 of scene 1 produced.
+Scene 1 complete.
+50%
+Image 1 of scene 2 produced.
+60%
+Image 2 of scene 2 produced.
+70%
+Image 3 of scene 2 produced.
+75%
+Image 4 of scene 2 produced.
+Scene 2 complete.
+Processing complete.
+100%
