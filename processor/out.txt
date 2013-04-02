@@ -16,6 +16,8 @@ Image 2 of scene 2 produced.
 Image 3 of scene 2 produced.
 75%
 Image 4 of scene 2 produced.
+Image 5 of scene 2 produced.
+90%
 Scene 2 complete.
-Processing complete.
 100%
+Processing complete.

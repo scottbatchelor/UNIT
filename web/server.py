@@ -47,7 +47,7 @@ class ProgressHandler(tornado.websocket.WebSocketHandler):
         while True:
             message = socket.recv()
             percent = re.match(r"(\d+)%$", message)
-            if (percent):
+            if (percent and percent.group(1)):
                 self.write_message(percent.group(1))
 
 
