@@ -1,5 +1,5 @@
 all:
-	g++ -o processor Processor.cc
+	g++ -o processor processor.cc
 
 clean:
 	rm -f processor

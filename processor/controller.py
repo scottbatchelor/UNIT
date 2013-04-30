@@ -17,11 +17,14 @@ class ProcessorController:
     def awaitRequest(self):
         command = self.socket.recv()
         self.socket.send("Ok.")
-        if (re.search("process", command)):
-            self.process()
 
-    def process(self):
-        t = os.popen(self.cmd, "r")
+
+        r = re.match(r"process (.*)$", command)
+        if (r and r.group(1)):
+            self.process(r.group(1))
+
+    def process(self, uuid):
+        t = os.popen(self.cmd + ' ' + uuid, "r")
         while 1:
             line = t.readline()
             if not line:
