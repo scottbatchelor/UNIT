@@ -36,6 +36,6 @@ class ProcessorController:
             self.pub.send(line)
 
 
-tm = ProcessorController("./processor out.txt")
+tm = ProcessorController("../processor/processor ../processor/out.txt")
 while(1):
     tm.awaitRequest()
