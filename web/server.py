@@ -1,20 +1,18 @@
 import tornado.web
 import tornado.websocket
 import tornado.ioloop
-import thread
-import zmq
-import re
-
-
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render("main.html")
+import LogHandler
+import ProgressHandler
+import MainHandler
 
 application = tornado.web.Application([
-    (r"/", MainHandler),
+    (r"/progress", ProgressHandler.ProgressHandler),
+    (r"/log", LogHandler.LogHandler),
+    (r"/", MainHandler.MainHandler),
+
 ])
 
 
 if __name__ == "__main__":
-    application.listen(8888)
+    application.listen(8080)
     tornado.ioloop.IOLoop.instance().start()

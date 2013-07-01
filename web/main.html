@@ -26,8 +26,8 @@
             var bar = document.getElementById('progressBar');
             var logInfo = document.getElementById("logInfo");
 
-            var progressWs = new WebSocket("ws://localhost:8889/progress");
-            var logWs = new WebSocket("ws://localhost:8889/log");
+            var progressWs = new WebSocket("ws://localhost:8080/progress");
+            var logWs = new WebSocket("ws://localhost:8080/log");
 
             logInfo.value = ""
 
